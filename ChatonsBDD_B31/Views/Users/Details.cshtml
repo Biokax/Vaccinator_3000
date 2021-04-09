@@ -1,0 +1,87 @@
+﻿@model ChatonsBDD_B31.Models.User
+
+<div>
+    <h4>Détail de l'utilisateur</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.firstName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.firstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.lastName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.lastName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.birthDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.birthDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.gender)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.gender)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.category)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.category)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Modifier</a> |
+    <a asp-action="Index">Retour à la liste</a>
+</div>
+<h4 class="my-4">Injections</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Date
+            </th>
+            <th>
+                Rappel
+            </th>
+            <th>
+                Marque
+            </th>
+            <th>
+                Identifiant de Lot
+            </th>
+            <th>
+                Vaccin
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.injections)
+        {
+            <tr>
+                <td>
+                    @item.date
+                </td>
+                <td>
+                    @item.recall
+                </td>
+                <td>
+                    @item.brand
+                </td>
+                <td>
+                    @item.lot
+                </td>
+                <td>
+                    <a href="/Vaccines/Details/@item.vaccine.Id">@item.vaccine.name</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

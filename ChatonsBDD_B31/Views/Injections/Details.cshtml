@@ -1,0 +1,52 @@
+﻿@model ChatonsBDD_B31.Models.Injection
+
+@{
+    ViewData["Title"] = "Injection";
+}
+
+<div>
+    <h4>Détails de l'injection</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.date)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.date)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.recall)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.recall)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.brand)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.brand)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.lot)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.lot)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.user)
+        </dt>
+        <dd class="col-sm-10">
+            <a href="/Users/Details/@Html.DisplayFor(model => model.user.Id)"> @Html.DisplayFor(model => model.user.firstName) @Html.DisplayFor(model => model.user.lastName)</a>
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.vaccine)
+        </dt>
+        <dd class="col-sm-10">
+            <a href="/Vaccines/Details/@Html.DisplayFor(model => model.vaccine.Id)"> @Html.DisplayFor(model => model.vaccine.name)</a>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Modifier</a> |
+    <a asp-action="Index">Retour à la liste</a>
+</div>

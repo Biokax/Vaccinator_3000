@@ -1,0 +1,40 @@
+@model IEnumerable<ChatonsBDD_B31.Models.Injection>
+
+@{
+    ViewData["Title"] = "Liste";
+}
+
+<h1>En retard d'un rappel</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.user)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.vaccine)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.recall)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.user.firstName) @Html.DisplayFor(modelItem => item.user.lastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.vaccine.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.recall)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
